@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import { createStyles, withStyles, WithStyles, Theme } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import {
+    DraftInlineStyle,
     Editor, EditorState, convertFromRaw, RichUtils, AtomicBlockUtils,
     CompositeDecorator, convertToRaw, DefaultDraftBlockRenderMap, DraftEditorCommand,
     DraftHandleValue, DraftStyleMap, ContentBlock, DraftDecorator,
@@ -58,6 +59,7 @@ export type TDraftEditorProps = {
     spellCheck?: boolean
     stripPastedStyles?: boolean
     handleDroppedFiles?: (selectionState: SelectionState, files: Blob[]) => DraftHandleValue
+    customStyleFn?: (style: DraftInlineStyle, block: ContentBlock) => undefined | Object
 }
 
 export type TKeyCommand = {

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { WithStyles, Theme } from '@material-ui/core/styles';
-import { EditorState, DraftHandleValue, SelectionState } from 'draft-js';
+import { EditorState, DraftHandleValue, SelectionState, DraftInlineStyle, ContentBlock } from 'draft-js';
 
 // Autocomplete
 
@@ -107,6 +107,7 @@ export declare type TDraftEditorProps = {
     spellCheck?: boolean;
     stripPastedStyles?: boolean;
     handleDroppedFiles?: (selectionState: SelectionState, files: Blob[]) => DraftHandleValue;
+    customStyleFn?: (style: DraftInlineStyle, block: ContentBlock) => undefined | Object
 };
 export declare type TKeyCommand = {
     key: number;
