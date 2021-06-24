@@ -1,6 +1,6 @@
 {
     "name": "@arteneo/mui-rte",
-    "version": "1.29.2",
+    "version": "1.29.3",
     "description": "Fork of Material-UI Rich Text Editor and Viewer",
     "private": false,
     "keywords": [
