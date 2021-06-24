@@ -101,6 +101,7 @@ export declare type TMUIRichTextEditorRef = {
     insertAtomicBlock: (name: string, data: any) => void;
     insertAtomicBlockSync: (name: string, data: any) => void;
     insertAtomicBlockAsync: (name: string, promise: Promise<TAsyncAtomicBlockResponse>, placeholder?: string) => void;
+    setEditorState: React.Dispatch<React.SetStateAction<EditorState>>;
 };
 export declare type TDraftEditorProps = {
     spellCheck?: boolean;
