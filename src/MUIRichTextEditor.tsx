@@ -276,7 +276,8 @@ const MUIRichTextEditor: RefForwardingComponent<TMUIRichTextEditorRef, IMUIRichT
         },
         insertAtomicBlockAsync: (name: string, promise: Promise<TAsyncAtomicBlockResponse>, placeholder?: string) => {
             handleInsertAtomicBlockAsync(name, promise, placeholder)
-        }
+        },
+        setEditorState,
     }))
 
     useEffect(() => {
