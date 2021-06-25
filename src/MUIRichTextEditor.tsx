@@ -81,6 +81,7 @@ export type TMUIRichTextEditorProps = {
     error?: boolean
     controls?: Array<TToolbarControl>
     customControls?: TCustomControl[]
+    customStyleMap?: DraftStyleMap
     decorators?: TDecorator[]
     toolbar?: boolean
     toolbarButtonSize?: TToolbarButtonSize
@@ -235,7 +236,7 @@ const useEditorState = (props: IMUIRichTextEditorProps) => {
 }
 
 const MUIRichTextEditor: RefForwardingComponent<TMUIRichTextEditorRef, IMUIRichTextEditorProps> = (props, ref) => {
-    const { classes, controls, customControls } = props
+    const { classes, controls, customControls, customStyleMap } = props
 
     const [state, setState] = useState<TMUIRichTextEditorState>({})
     const [focus, setFocus] = useState(false)
@@ -950,12 +951,14 @@ const MUIRichTextEditor: RefForwardingComponent<TMUIRichTextEditorRef, IMUIRichT
     }
 
     const styleRenderer = (style: any): React.CSSProperties => {
-        const customStyleMap = getStyleMap()
+        const styleMap = getStyleMap()
         const styleNames = style.toJS()
-        return styleNames.reduce((styles: any, styleName: string) => {
-            styles = customStyleMap[styleName]
+        const styles = styleNames.reduce((styles: any, styleName: string) => {
+            styles = styleMap[styleName]
             return styles
         }, {})
+
+        return Object.assign(styles, customStyleMap);
     }
 
     const insertAtomicBlock = (editorState: EditorState, type: string, data: any, options?: any) => {

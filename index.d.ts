@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { WithStyles, Theme } from '@material-ui/core/styles';
-import { EditorState, DraftHandleValue, SelectionState, DraftInlineStyle, ContentBlock } from 'draft-js';
+import { EditorState, DraftHandleValue, SelectionState, DraftInlineStyle, ContentBlock, DraftStyleMap } from 'draft-js';
 
 // Autocomplete
 
@@ -127,6 +127,7 @@ export declare type TMUIRichTextEditorProps = {
     error?: boolean;
     controls?: Array<TToolbarControl>;
     customControls?: TCustomControl[];
+    customStyleMap?: DraftStyleMap;
     decorators?: TDecorator[];
     toolbar?: boolean;
     toolbarButtonSize?: TToolbarButtonSize;
